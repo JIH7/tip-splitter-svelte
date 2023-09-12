@@ -1,0 +1,85 @@
+@use './reset.scss';
+@use './variables.scss' as v;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+// Font
+:root {
+    font-family: 'Space Mono', monospace;
+}
+
+// Get rid of number box arrow
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// Firefox
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+// Main styles
+
+body {
+    min-height: 100vh;
+    background-color: v.$light-grayish-cyan;
+    box-sizing: border-box;
+}
+
+#app,
+main {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+h1 {
+    width: 87px;
+    margin: auto;
+}
+
+section {
+    height: fit-content;
+
+    margin-block-start: 40px;
+    
+    background-color: v.$white;
+
+    box-sizing: border-box;
+    padding: 32px;
+
+    border-radius: 25px 25px 0px 0px;
+}
+
+h3 {
+    margin-block-end: 6px;
+}
+
+* + h3 {
+    margin-block-start: 32px;
+}
+
+h2 {
+    border-radius: 5px;
+
+    box-sizing: border-box;
+    padding: 16px 19px;
+
+    background-color: v.$very-light-grayish-cyan;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type=number] {
+    text-align: right;
+    border: none;
+    outline: none;
+    background: none;
+}
