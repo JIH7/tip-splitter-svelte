@@ -1,7 +1,30 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    let selected:number | null = null;
+    export let selected:number | null = null;
+    export let tipPercent:number | null = null;
+    export let calculate:Function;
+
+    const updateTipPercent = () => {
+        if (selected === 0) {
+            tipPercent = 5;
+        } else if (selected === 1) {
+            tipPercent = 10;
+        } else if (selected === 2) {
+            tipPercent = 15;
+        } else if (selected === 3) {
+            tipPercent = 25;
+        } else if (selected === 4) {
+            tipPercent = 50;
+        } else {
+            const percentInput:HTMLInputElement | null = document.querySelector(".button-panel input[type=number]");
+            if(percentInput?.value) {
+                tipPercent = Number(percentInput.value);
+            }
+        }
+
+        calculate();
+    }
 
     onMount(() => {
         const percentInput:HTMLInputElement | null = document.querySelector(".button-panel input[type=number]");
@@ -18,6 +41,7 @@
             if(Number(percentInput.value) > 100) {
                 percentInput.value = "100";
             }
+            updateTipPercent();
         })
 
         // Button event listeners
@@ -27,6 +51,7 @@
             const key = i;
             button.addEventListener("click", () => {
                 selected = key;
+                updateTipPercent();
             })
         })
     })

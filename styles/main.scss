@@ -47,6 +47,13 @@ main {
 h1 {
     width: 87px;
     margin: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
 }
 
 section.container {
@@ -100,7 +107,7 @@ h2 {
     }
 
     input[type=number] {
-        width: 80%;
+        width: 94%;
 
         color: v.$very-dark-cyan;
         font-size: 24px;
@@ -200,11 +207,21 @@ section.output {
         width: 100%;
         height: 48px;
         border-radius: 5px;
-        background-color: v.$strong-cyan;
-        color: v.$very-dark-cyan;
+        background-color: #0D686D;
+        color: #00474B;
         outline: none;
         border: none;
         font-size: 20px;
+    }
+
+    button.active {
+        background-color: v.$strong-cyan;
+        color: v.$very-dark-cyan;
+    }
+
+    button.active:hover {
+        background-color: #9FE8DF;
+        color: #00474B;
     }
 
     > div {
@@ -248,6 +265,16 @@ section.output {
         input[type=number] {
             width: 100px;
         }
+    }
+
+    section.output {
+        position: relative;
+    }
+
+    section.output button {
+        position: absolute;
+        bottom: 32px;
+        width: calc(100% - 48px);
     }
 }
 

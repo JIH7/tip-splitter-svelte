@@ -1,5 +1,12 @@
-<script>
+<script lang="ts">
+    export let tipPerPerson:number;
+    export let totalPerPerson:number;
+    export let outputExists:boolean = false;
+    export let reset:Function;
 
+    const handleClick = () => {
+        reset();
+    }
 </script>
 
 <section class="output">
@@ -8,14 +15,14 @@
             <h3>Tip Amount</h3>
             <p>/ person</p>
         </div>
-        <h2>$0.00</h2>
+        <h2>${tipPerPerson.toFixed(2)}</h2>
     </div>
     <div>
         <div>
             <h3>Total</h3>
             <p>/ person</p>
         </div>
-        <h2>$0.00</h2>
+        <h2>${totalPerPerson.toFixed(2)}</h2>
     </div>
-    <button>RESET</button>
+    <button class={outputExists ? "active" : ""} on:click={handleClick}>RESET</button>
 </section>

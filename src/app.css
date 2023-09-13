@@ -92,6 +92,13 @@ main {
 h1 {
   width: 87px;
   margin: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
 }
 
 section.container {
@@ -136,7 +143,7 @@ h2 img {
   height: auto;
 }
 h2 input[type=number] {
-  width: 80%;
+  width: 94%;
   color: #00494d;
   font-size: 24px;
   font-style: normal;
@@ -219,11 +226,19 @@ section.output button {
   width: 100%;
   height: 48px;
   border-radius: 5px;
-  background-color: #26c0ab;
-  color: #00494d;
+  background-color: #0D686D;
+  color: #00474B;
   outline: none;
   border: none;
   font-size: 20px;
+}
+section.output button.active {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+section.output button.active:hover {
+  background-color: #9FE8DF;
+  color: #00474B;
 }
 section.output > div {
   display: flex;
@@ -258,6 +273,14 @@ section.output > div + button {
   .button-panel button,
   .button-panel input[type=number] {
     width: 100px;
+  }
+  section.output {
+    position: relative;
+  }
+  section.output button {
+    position: absolute;
+    bottom: 32px;
+    width: calc(100% - 48px);
   }
 }
 @media only screen and (min-width: 1080px) {
